@@ -62,15 +62,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', updateActiveNav);
 
-    // === SCROLL TO TOP ===
+    // === SCROLL TO TOP + STICKY CTA ===
     const scrollTopBtn = document.getElementById('scrollTop');
+    const stickyCta = document.getElementById('stickyCta');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
+        const scrolled = window.scrollY > 500;
+        scrollTopBtn.classList.toggle('visible', scrolled);
+        if (stickyCta) stickyCta.classList.toggle('visible', scrolled);
     });
 
     scrollTopBtn.addEventListener('click', () => {
@@ -227,6 +226,16 @@ document.addEventListener('DOMContentLoaded', () => {
             successModal.classList.remove('active');
         }
     });
+
+    // === QUICK CAPTURE FORM ===
+    const quickForm = document.getElementById('quickForm');
+    if (quickForm) {
+        quickForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            successModal.classList.add('active');
+            quickForm.reset();
+        });
+    }
 
     // === SMOOTH SCROLL FOR ANCHOR LINKS ===
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

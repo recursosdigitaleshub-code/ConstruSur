@@ -1538,6 +1538,176 @@ ul, ol {
     margin-bottom: 1.5rem;
 }
 
+/* === HERO BADGE STARS === */
+.hero__badge-stars {
+    color: #F39C12;
+    margin-right: 0.3rem;
+    letter-spacing: 1px;
+}
+
+/* === QUICK CAPTURE (Google Ads) === */
+.quick-capture {
+    background: var(--color-secondary);
+    padding: 2rem 0;
+    position: relative;
+    z-index: 3;
+}
+
+.quick-capture__inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.quick-capture__title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+
+.quick-capture__desc {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.quick-capture__form {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.quick-capture__form input,
+.quick-capture__form select {
+    padding: 0.7rem 1rem;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    min-width: 160px;
+    backdrop-filter: blur(4px);
+}
+
+.quick-capture__form input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.quick-capture__form select option {
+    color: var(--color-text);
+    background: #fff;
+}
+
+.quick-capture__form input:focus,
+.quick-capture__form select:focus {
+    outline: none;
+    border-color: #fff;
+    background: rgba(255,255,255,0.25);
+}
+
+.quick-capture__form .btn {
+    white-space: nowrap;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    padding: 0.7rem 1.3rem;
+}
+
+.quick-capture__form .btn:hover {
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+/* === TESTIMONIALS GOOGLE BADGE === */
+.testimonials__google-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+    padding: 0.6rem 1.5rem;
+    background: #fff;
+    border: 2px solid #F39C12;
+    border-radius: 50px;
+    display: inline-flex;
+}
+
+.testimonials__google-stars {
+    color: #F39C12;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.testimonials__google-rating {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.testimonials__google-count {
+    font-size: 0.82rem;
+    color: var(--color-text-light);
+}
+
+/* === STICKY CTA BAR === */
+.sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-primary);
+    padding: 0.75rem 0;
+    z-index: 997;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+}
+
+.sticky-cta.visible {
+    transform: translateY(0);
+}
+
+.sticky-cta__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.sticky-cta__text {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.88rem;
+}
+
+.sticky-cta__text strong {
+    color: var(--color-secondary-light);
+}
+
+.sticky-cta__actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.btn--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+}
+
+.btn--light-solid {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border-color: rgba(255,255,255,0.3);
+}
+
+.btn--light-solid:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
+}
+
 /* === ANIMATIONS === */
 [data-animate] {
     opacity: 0;
@@ -1651,6 +1821,26 @@ ul, ol {
         gap: 0.75rem;
     }
 
+    /* Quick Capture responsive */
+    .quick-capture__inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .quick-capture__form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .quick-capture__form input,
+    .quick-capture__form select {
+        min-width: 100%;
+    }
+
+    .quick-capture__form .btn {
+        width: 100%;
+    }
+
     .stats__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
@@ -1729,6 +1919,34 @@ ul, ol {
     .cta-banner__actions {
         flex-direction: column;
         align-items: center;
+    }
+
+    /* Sticky CTA responsive */
+    .sticky-cta__text {
+        display: none;
+    }
+
+    .sticky-cta__inner {
+        justify-content: center;
+    }
+
+    .sticky-cta__actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Adjust WhatsApp float for sticky bar */
+    .whatsapp-float {
+        bottom: 70px;
+    }
+
+    .scroll-top {
+        bottom: 70px;
+    }
+
+    /* Footer extra padding for sticky bar */
+    .footer {
+        padding-bottom: 60px;
     }
 }
 
